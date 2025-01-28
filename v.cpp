@@ -1,23 +1,35 @@
 //author : Zenith
-// 2024-01-23 19:53:42
- 
+// 2024-12-19 18:41:22
+
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long int
- 
-void solve(){
-    int n; cin >> n;
-    multiset<int> s;
-    for(int i = 0; i<n; i++) {
-        int x; cin >> x;
-        auto it = s.upper_bound(x);
-        if(it == s.end()) s.insert(x);
-        else{
-            s.erase(it);
-            s.insert(x);
+
+int c(int n, int nums[], int k) {
+    // int n = nums.size();
+    int count = 0;
+
+    for (int i = 0; i < n; ++i) {
+        int gcd = 0;
+        for (int j = i; j < n; ++j) {
+            gcd = __gcd(gcd, nums[j]);
+            if (gcd == k) {
+                ++count;
+            } else if (gcd < k) {
+                break;
+            }
         }
     }
-    cout << s.size() << endl;
+
+    return count;
+}
+
+void solve(){
+    int n = 6, k = 3;
+    int arr[n];
+    for(int i = 0; i < n; i++) cin >> arr[i];
+    int ans = c(n, arr, k);
+    cout << ans;
 }
 signed main(){
     ios_base::sync_with_stdio(false);
