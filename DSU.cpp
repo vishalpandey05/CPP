@@ -5,11 +5,11 @@
 using namespace std;
 #define int long long int
 
-class DisjointSet{
+class DSU{
     private:
         vector<int> rank, parent, size;
     public:
-        DisjointSet(int n){
+        DSU(int n){
             rank.resize(n+1, 0);
             parent.resize(n+1);
             size.resize(n+1);
