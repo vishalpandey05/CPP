@@ -10,7 +10,7 @@ void solve(){
     if(x != 1){
         cout << "YES\n";
         cout << n << endl;
-        for(int i = 0; i<n; i++){
+        for(int i = 0; i < n; i++){
             cout << 1 << " ";
         }
         cout << endl;
